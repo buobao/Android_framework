@@ -2,6 +2,7 @@ package com.turman.framework.components;
 
 import com.turman.framework.MainActivity;
 import com.turman.framework.modules.MainModule;
+import com.turman.framework.utils.LocationUtils;
 
 import javax.inject.Singleton;
 
@@ -14,4 +15,6 @@ import dagger.Component;
 @Component(modules = {MainModule.class})
 public interface MainComponent {
     void inject(MainActivity activity);
+
+    LocationUtils locationUtils();
 }

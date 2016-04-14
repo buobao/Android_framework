@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     @Inject
     protected MainPresenter mainPresenter;
+    @Inject
+    protected LocationUtils locationUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
         component = DaggerMainComponent.builder().mainModule(new MainModule(this)).build();
         component.inject(this);
 
-        Location location = LocationUtils.getLocation(this);
+        Location location = locationUtils.getLocation(this);
 
         Map<String,Object> sub_params = new HashMap<>();
         sub_params.put("latlng", location.getLatitude() + "," + location.getLongitude());

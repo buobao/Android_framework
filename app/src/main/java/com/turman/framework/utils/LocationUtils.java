@@ -7,11 +7,18 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 
+import javax.inject.Inject;
+
 /**
  * Created by dqf on 2016/4/5.
  */
 public class LocationUtils {
-    public static Location getLocation(Context context) {
+
+    @Inject
+    public LocationUtils() {
+    }
+
+    public Location getLocation(Context context) {
         LocationManager locationManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
